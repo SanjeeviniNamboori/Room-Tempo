@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(images/login-bg.jpg);
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: -200px;
+    background-repeat: no-repeat;
+    font-family: 'Roboto';
+}
+.overlay-color{
+    background: rgba(77, 112, 224, 0.47);
+    height: 100vh;
+}
+.loginBoxDiv{
+    width: 400px;
+    height: 100vh;
+    background-color: #fff;
+    position: absolute;
+    left: calc(100% - 400px);
+    -webkit-box-shadow: 1px 0px 25px 4px rgb(0, 16, 67);
+	-moz-box-shadow: 1px 0px 25px 4px rgb(0, 16, 67);
+	box-shadow: 1px 0px 25px 4px rgb(0, 16, 67);
+}
+.loginBoxDiv h1{
+    font-size: 35px;
+    padding: 100px 0;
+    text-align: center;
+    color: #75c62e;
+}
+.loginBoxDiv h1 span{
+	font-size: 35px;
+	color: #75c62e;
+	font-weight: 100;
+}
+.loginBoxDiv form{
+    margin: 20px;
+}
+.loginBoxDiv form h4{
+    padding-left: 16px;
+    margin-bottom: 0;
+}
+.loginBoxDiv form input[type="text"], .loginBoxDiv form input[type="password"]{
+	width: 94%;
+    border: none;
+    outline: none;
+    height: 36px;
+    background-color: #edf1fc;
+    border-radius: 18px;
+    margin: 20px 0 0 0;
+    padding-left: 18px;
+    font-size: 14px;
+}
+.loginBoxDiv form input[type="submit"],  input[type="button"]{
+	width: 100%;
+    border: none;
+    outline: none;
+    height: 36px;
+    color: #fff;
+    font-size: 15px;
+    background-color: #75c62e;
+    border-radius: 18px;
+    margin: 20px 0 0 0;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.20);
+    -moz-box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.20);
+    box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.20);
+
+}
+.loginBoxDiv form input[type="submit"]:hover,  input[type="button"]:hover{
+	-webkit-box-shadow: 0px 4px 8px 0px rgba(50, 50, 50, 0.20);
+    -moz-box-shadow: 0px 4px 8px 0px rgba(50, 50, 50, 0.20);
+	box-shadow: 0px 4px 8px 0px rgba(50, 50, 50, 0.20);
+}
+::placeholder{
+	color: #7b7b7b;
+	font-size: 13px;
+}
+@media screen and (max-width: 1919px) and (min-width: 414px) {
+    body {
+        background-position-y: unset;
+    }
+}

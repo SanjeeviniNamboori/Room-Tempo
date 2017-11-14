@@ -1,0 +1,112 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 v-if="menuInstanceDetail" class="pull-left">{{"Editing '" + menuInstanceDetail.MenuName + "'"}}</h4>
+        <div class="btn-group pull-right">
+            <button class="btn btn-default" @click="showDeleteConfirmation = true;">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+
+        <template v-if="showDeleteConfirmation">
+            <div class="btn-group pull-right mb-0">
+                <div class="form-group mb-0 alert alert-danger">
+                    <label>Are you sure you want to delete?</label>
+                    <button class="btn btn-danger btn-sm" @click="onClick_ContinueWithDelete">Yes</button>
+                    <button class="btn btn-success btn-sm" @click="showDeleteConfirmation = false;">No</button>
+                </div>
+            </div>
+        </template>
+        <template v-if="showDeleteFailureMessage">
+            <div class="btn-group pull-right mb-0 alert alert-info">
+                <label v-text="deleteFailureMessage"></label>
+            </div>
+        </template>
+
+    </div>
+    <div class="panel-body addBg">
+
+        <ul class="nav nav-tabs">
+            <li v-for="(tab, tabIndex) in menuConfigureTabs" :key="tab.id" v-on:click="" :class="{ active: selectedTab === tab.id }">
+                <a v-text="tab.text" v-on:click="onClick_selectTab(tab.id)"></a>
+            </li>
+        </ul>
+
+        <div class="col-md-12">
+            <div class="tab-content">
+                <div class="tab-pane" v-if="selectedTab === 1" :class="{ active: selectedTab === 1 }">
+                    <template v-if="menuInstanceDetail">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="btn-group pull-right">
+                                    <button class="btn btn-default" @click="onClick_SaveMenuDetails"><i class="fa fa-save"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Menu Name:</label>
+                            <input class="form-control" v-model="menuInstanceDetail.MenuName"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Description:</label>
+                            <textarea rows="3" class="form-control" type="text" v-model="menuInstanceDetail.MenuDescription"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Icon Class: </label>
+                            <input class="form-control" v-model="menuInstanceDetail.MenuIconClass"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Navigate To Url: </label>
+                            <input class="form-control" v-model="menuInstanceDetail.NavigateToUrl"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Navigate To Fragment (Mobile only): </label>
+                            <input class="form-control" v-model="menuInstanceDetail.NavigateToFragment"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Method to call which will display menu count: </label>
+                            <input class="form-control" v-model="menuInstanceDetail.MethodToDisplayMenuCount"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Fragment to call which will display menu count (Mobile only): </label>
+                            <input class="form-control" v-model="menuInstanceDetail.FragmentToDisplayMenuCount"/>
+                        </div>
+                    </template>
+                </div>
+                <div class="tab-pane" v-if="selectedTab === 2" :class="{ active: selectedTab === 2 }">
+                    <template v-if="subMenuInstanceList">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="pull-left">Sub Menus List</h4>
+                                <div class="btn-group pull-right">
+                                    <button class="btn btn-default btn-sm" title="Add New Sub Menu" @click="createNewSubMenu">
+                                        <span class="fa fa-plus"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-deck">
+                            <div class="card zoomIn animated cardWithConfig" v-for="subMenuItem in subMenuInstanceList" v-if="subMenuItem">
+                                <div class="card-block" @click="onClick_goToSubMenuItemConfiguration(subMenuItem)">
+                                    <h6 class="card-title">{{subMenuItem.MenuName}}</h6>
+                                    <p class="card-text">{{subMenuItem.MenuDescription}}</p>
+                                </div>
+                                <i :class="subMenuItem.iconClass && subMenuItem.iconClass !== '' ? subMenuItem.iconClass : 'fa fa-cog pull-right'"
+                                   @click="onClick_goToSubMenuItemConfiguration(subMenuItem)"></i>
+                            </div>
+
+                            <transition name="fade" v-if="showNewSubMenu">
+                                <vw-menu-edit-meta-data-component
+                                        :cancelNewMenuCreation="onClickCancelSubMenuCreation"
+                                        :getMenuInstanceDetail="getData"
+                                        :parentMenuInstanceId="menuInstanceId"></vw-menu-edit-meta-data-component>
+                            </transition>
+                        </div>
+
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

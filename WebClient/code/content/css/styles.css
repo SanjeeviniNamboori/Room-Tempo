@@ -1,0 +1,152 @@
+﻿/*Default system fonts should be used*/
+/*@import url('https://fonts.googleapis.com/css?family=Roboto');*/
+/*@import url('<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">');*/
+
+body {
+    /*font-family: 'Roboto', sans-serif;
+    letter-spacing: .01rem;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.58;
+    letter-spacing: -.003em;*/
+    background: #f2f2f2; /*rgb(235, 235, 235) #e6e8e4*/
+}
+
+#page-content {
+    padding: 70px 10px 10px 10px;
+}
+
+.contentbox {
+    background: #fcfcfa !important;
+}
+
+/*Header Bar*/
+#custom-nav-bar {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    background: #444a59;
+}
+
+    #custom-nav-bar .navbar-brand {
+        color: #fff;
+    }
+
+    #custom-nav-bar .homelogo {
+        padding-top: 0.4rem;
+        font-size: 1.75em;
+        color: #fff;
+    }
+
+        #custom-nav-bar .homelogo:hover {
+            color: #f2f2f2;
+            cursor: pointer;
+        }
+
+
+/*Layout Card*/
+.card {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    border-radius: 0rem;
+    background: #fcfcfa;
+}
+
+    .card:hover {
+        /*box-shadow: 0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12),0 3px 5px -1px rgba(0,0,0,.2);*/
+        border-radius: 0rem;
+    }
+
+
+/*Tabs*/
+.nav-tabs.tabs > li > a.nav-link {
+    border: 0px;
+}
+
+    .nav-tabs.tabs > li > a.nav-link.active {
+        border-color: inherit;
+        background-color: inherit;
+        border-bottom: 3px solid #55acee;
+        transition: opacity 0.1s cubic-bezier(0.4, 0.0, 1, 1);
+        font-weight: bold;
+    }
+
+/*form basics*/
+form {
+    padding-top: 10px;
+}
+
+    form.nopad {
+        padding-top: 0px;
+    }
+
+.objectwrapper {
+    min-height: calc(100vh - 150px);
+    border: 2px dashed #d4cdcd;
+    padding: 15px;
+}
+
+
+.datatypeslist > .bg-faded {
+    padding: .5rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.form-control.param-label-config {
+    border: 0px;
+    border-bottom: 0.1rem solid thistle;
+    border-radius: 0px;
+    background-color: inherit;
+}
+
+
+.table > thead {
+    background: #1677cb; /*#d3d6d3*/
+    color: #fff;
+}
+
+.contentHeaderWrap {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0px 4px 0px;
+}
+
+.goldenbgcolor {
+    background: #ddbb73;
+    color: #fff;
+}
+
+
+
+.raisedbox {
+    padding: 10px;
+    border: 1px solid #77aaff;
+    box-shadow: -1px 1px #77aaff, -2px 2px #77aaff, -3px 3px #77aaff, -4px 4px #77aaff, -5px 5px #77aaff;
+}
+
+.mdl-shadow--2dp {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.mdl-shadow--3dp {
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.12);
+}
+
+.mdl-shadow--4dp {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+}
+
+.mdl-shadow--6dp {
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12),0 3px 5px -1px rgba(0,0,0,.2);
+}
+
+.mdl-shadow--8dp {
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12),0 5px 5px -3px rgba(0,0,0,.2);
+}
+
+.mdl-shadow--16dp {
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);
+}
+
+.mdl-shadow--24dp {
+    box-shadow: 0 9px 46px 8px rgba(0,0,0,.14),0 11px 15px -7px rgba(0,0,0,.12),0 24px 38px 3px rgba(0,0,0,.2);
+}

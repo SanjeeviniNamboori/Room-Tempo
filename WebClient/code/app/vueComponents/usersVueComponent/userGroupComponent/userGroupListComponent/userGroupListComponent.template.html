@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="pull-left">
+            <h4>User Group List</h4>
+        </span>
+        <div class="btn-group pull-right">
+            <button class="btn btn-default btn-sm" title="Add New User Group" @click="createUserGroup">
+                        <span class="fa fa-plus"></span>
+                    </button>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <!--<div class="row">
+            <div class="col-md-12">
+                <h5 class="pull-left">User Groups List</h5>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-default btn-sm" title="Add New User Group" @click="createUserGroup">
+                        <span class="fa fa-plus"></span>
+                    </button>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="card-deck">
+            <div class="card zoomIn animated" v-for="userGroupItem in userGroupList" v-if="userGroupItem">
+
+                <div class="card-block" @click="onClick_goToUserGroupInstance(userGroupItem)">
+                    <span v-if="userGroupItem.UserGroupInstanceIconClass" :class="userGroupItem.UserGroupInstanceIconClass"></span>
+                    <h6 class="card-title">{{userGroupItem.UserGroupInstanceName}}</h6>
+                    <p class="card-text">{{userGroupItem.UserGroupInstanceDescription}}</p>
+                </div>
+
+            </div>
+
+
+            <transition name="fade" v-if="showNewUserGroup">
+                <vw-user-group-edit-meta-data-component :onClickCancelUserGroupCreation="onClickCancelUserGroupCreation"></vw-user-group-edit-meta-data-component>
+            </transition>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div  class="LeftMainSaid">
+        
+    <div @click="toggleSideBar" class="expSide">
+            <p @click="pinSideBar" class="pin"><i class="fa fa-thumb-tack"></i></p>
+        <button id="nav-icon3" style="float: right">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <ul>
+        <!--<li title="Home"  @click="redirectToHome"><i class="fa fa-home"></i><span>Home</span></li>-->
+        <li title="Home" @click="switchClient"><i class="fa fa-bar-chart"></i> <span>Home</span></li>
+        <li title="Home" @click="switchClient"><i class="fa fa-calendar"></i> <span>Home</span></li>
+        <li title="Home" @click="redirectToReservations"><i class="fa fa-bed"></i> <span>Reservations</span></li>
+
+        <!--<li title="Notifications" @click="redirectToNotifications"><i class="fa fa-bell"></i><span>Notifications</span></li>-->
+        <li title="Menus" v-if="isCurrentUserAdmin === true" @click="redirectToMenus"><i class="fa fa-bars"></i><span>Menus</span></li>
+        <li title="Base Calendar" v-if="isCurrentUserAdmin === true" @click="redirectToBaseCalendar"><i class="fa fa-calendar"></i><span>Base Calendar</span></li>
+        <li title="Users" v-if="isCurrentUserAdmin === true" @click="redirectToUserTypes"><i class="fa fa-user"></i><span>Users</span></li>
+        <li title="User Groups" v-if="isCurrentUserAdmin === true" @click="redirectToUserGroups"><i class="fa fa-users"></i><span>User Groups</span></li>
+        <!-- <li title="Change Password" @click="redirectToChangePassword"><i class="fa fa-key"></i><span>Change Password</span></li> -->
+        <!--<li title="Menu Groups" data-toggle="tooltip" data-placement="right" @click="redirectToMenuGroups"><i class="fa fa-cog"></i><span>Menu Groups</span></li>-->
+    </ul>
+   
+    <div @click="toggleSideBar" class="menuMask"></div>
+</div>

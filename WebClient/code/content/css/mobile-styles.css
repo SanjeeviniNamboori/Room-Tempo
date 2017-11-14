@@ -1,0 +1,114 @@
+
+/* ----------- Starts iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 414px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 3) { 
+}
+
+/* Portrait */
+@media only screen 
+and (min-device-width: 414px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait) { 
+
+ /* Leave Approval History */
+  .profileInfoCard .title{
+    font-size: 9px !important;
+  }
+  .profileInfoCard .title{
+    font-size: 15px !important;
+    margin: 0px !important;
+    white-space: nowrap;
+  }
+  .text-right {
+     text-align: unset !important; 
+     float: left;
+  }
+  .profileInfoCard .text-right{
+    text-align: right !important;
+  }
+  .full-calendar-header .header-center{
+    flex: unset !important;
+  }
+
+ /* Notofocation Bar.. */
+  .notofocationBar.expand{
+    width: 315px !important;
+  }
+  .profileInfoCard label.form-control.lg-txt{
+    text-align: right;
+  }
+  label.form-control.lg-txt{
+    font-size: 18px !important;
+    text-align: left;
+  }
+  .nav-tabs.fixed{
+    padding: 0 15px !important;
+  }
+  .nav-tabs.fixed + *{
+    margin-top: 70px !important;
+   }
+   /* User Profile */
+   .profileHeader .userProfileName label{
+    font-size: 25px !important;
+    margin-top: -5px !important;
+   }
+   .profileHeader{
+    flex-wrap:unset !important;
+   }
+
+}
+
+/* Landscape */
+@media only screen 
+and (min-device-width: 414px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape) { 
+
+}
+
+/* ----------- End iPhone 6+ ----------- */
+
+
+
+/* ----------- Starts iPhone 6 ----------- */
+
+/* iPhone 6 in portrait & landscape */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+
+}
+
+/* iPhone 6 in portrait */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+     /* User Profile */
+     .profileHeader .userProfileName label{
+      font-size: 20px !important;
+      margin-top: -3px !important;
+     }
+     .profileHeader{
+      flex-wrap:unset !important;
+     }
+     .profileHeaderImgResize + input{
+      width: 120px !important;
+     }
+ }
+
+/* iPhone 6 in landscape */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) { 
+
+}
+
+/* ----------- End iPhone 6 ----------- */

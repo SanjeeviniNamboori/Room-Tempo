@@ -1,0 +1,77 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="pull-left">
+            <h4>Home</h4>
+        </span>
+    </div>
+
+    <div class="panel-body">
+        <!--<div class="row">
+            <div class="col-md-12">
+                <h5 class="pull-left">Namespaces List</h5>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-default btn-sm" title="Add New Namespace" @click="onNamespaceCreate">
+                        <span class="fa fa-plus"></span>
+                    </button>
+                </div>
+            </div>
+        </div>-->
+        <div class="card-deck">
+
+            <div class="card zoomIn animated" v-for="menuItem in menusAllocatedToLoggedInUser" v-if="menuItem">
+                <div class="card-block" @click="onClick_goToMenuDetail(menuItem)">
+                    <span :class="menuItem.MenuIconClass"></span>
+                    <h6 class="card-title">{{menuItem.MenuName}}</h6>
+                    <!--<p class="card-text">{{menuItem.MenuDescription}}</p>-->
+                </div>
+            </div>
+
+            <!--<div class="card zoomIn animated cardWithConfig">-->
+                <!--<div class="card-block" @click="onClick_goToLeaveMgmt">-->
+                    <!--<span class="fa leveManagement"></span>-->
+                    <!--<h6 class="card-title">Leave Management</h6>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card zoomIn animated cardWithConfig">-->
+                <!--<div class="card-block" @click="onClick_goToFeeConcession">-->
+                    <!--<span class="fa feeConcession"></span>-->
+                    <!--<h6 class="card-title">Fee Concessions</h6>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card zoomIn animated cardWithConfig">-->
+                <!--<div class="card-block" @click="onClick_goToMyProfile">-->
+                    <!--<span class="fa myProfile"></span>-->
+                    <!--<h6 class="card-title">My Profile</h6>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card zoomIn animated cardWithConfig">-->
+                <!--<div class="card-block" @click="onClick_goToMyAttendance">-->
+                    <!--<span class="fa myAttendance"></span>-->
+                    <!--<h6 class="card-title">My Attendance</h6>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="card zoomIn animated cardWithConfig" v-for="namespaceItem in namespaceList" v-if="namespaceItem">
+
+
+                <transition name="fade" v-if="namespaceItem.cbkey == currnamespace">
+                    <vw-namespace-edit-meta-data-component :namespaceId="namespaceItem.cbkey" :cancelNewNamespaceEdit="cancelNewNamespaceEdit">
+                    </vw-namespace-edit-meta-data-component>
+                </transition>
+                <div class="card-block" @click="onClick_goToNamespace(namespaceItem)" v-else>
+                    <h6 class="card-title">{{namespaceItem.name}}</h6>
+                    <p class="card-text">{{namespaceItem.description}}</p>
+                </div>
+                <i class="fa fa-pencil-square-o pull-right" @click="editNamespace(namespaceItem.cbkey)"></i>
+                <!--<i :class="namespaceItem.iconClass ? namespaceItem.iconClass : 'fa fa-cog pull-right'"-->
+            <!--@click="onClick_goToNamespaceConfig(namespaceItem)"></i>
+            </div>
+
+
+            <transition name="fade" v-if="showNewNamespace">
+                <vw-namespace-edit-meta-data-component :namespaceId="namespaceId" :cancelNewNamespaceEdit="cancelNewNamespaceEdit">
+                </vw-namespace-edit-meta-data-component>
+            </transition>-->
+        </div>
+    </div>
+</div>

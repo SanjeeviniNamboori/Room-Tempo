@@ -1,0 +1,60 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="pull-left">User List</h4>
+        <div class="pull-right">
+            <button class="btn btn-default btn-sm" @click="switchView">
+                <i v-if="listType == 'list'" class="fa fa-th-large"></i>
+                <i v-if="listType != 'list'" class="fa fa-table"></i>
+            </button>
+            <button class="btn btn-default btn-sm" title="Add New User" style="float: right" @click="createNewInstance"><i
+                    class="fa fa-plus respIcon"></i></button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="tableWrap">                    
+            <table class="table table-bordered userTable" v-if="listType == 'list'">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Designation</th>                    
+                        <th>Reporting Manager</th>
+                        <th>Subject</th>
+                        <th>LoginId</th>
+                        <th>Campus Name</th>
+                        <th>Location</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="inst in userList" @click="editUser(inst)">
+                        <td>{{inst.FirstName}}</td>
+                        <td>{{inst.LastName}}</td>
+                        <td>{{inst.DesignationName}}</td>                    
+                        <td>{{inst.ReportingManagerName}}</td>
+                        <td>{{inst.Subject}}
+                        <td>{{inst.LoginId}}</td>
+                        <td>{{inst.CampusName}}</td>
+                        <td>{{inst.CityName}}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-deck entityCards mt-0 pt-0" v-if="listType != 'list'">
+            <div class="card zoomIn animated" v-for="inst in userList" v-if="inst" @click="editUser(inst)">
+                <div class="card-block usersListCard">
+                    <!--<i class="fa fa-cog"></i>-->
+                     <img :src="inst.ProfileImage" class="cardAvatar pull-left mr-2" />
+                    <h6 class="" v-text="inst.FirstName + ' ' + inst.LastName"></h6>
+                    <span class="sm-txt" v-text="inst.DesignationName"></span>                    
+                    <span class="sm-txt"> Reporting to {{inst.ReportingManagerName}}</span>
+                    <span class="sm-txt" v-text="inst.Subject"></span>
+                    <span class="sm-txt" v-text="inst.LoginId"></span>
+                    <span class="sm-txt" v-text="inst.CampusName"></span>
+                    <span class="sm-txt" v-text="inst.CityName"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

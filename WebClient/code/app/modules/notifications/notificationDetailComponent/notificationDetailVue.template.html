@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+
+    <div class="" v-if="notificationDetail">
+        <div class="panel-heading">
+            <span class="pull-left">
+                <h4>{{notificationDetail.MessageTitle}}</h4>                     
+            </span>
+
+            <!--<button class="btn btn-success btn-sm pull-right" title="Save Notification" @click="saveNotification">
+                Save
+            </button>-->
+        </div>
+    </div>
+
+    <div class="panel-body addBg" v-if="notificationDetail">
+        <div class="form-group">
+            <label>Device Id:</label>
+            <input class="form-control" type="text" v-model="notificationDetail.DeviceId" />
+        </div>
+        <div class="form-group">
+            <label>Message:</label>
+            <textarea class="form-control" v-model="notificationDetail.Message"></textarea>
+        </div>
+
+    </div>
+</div>

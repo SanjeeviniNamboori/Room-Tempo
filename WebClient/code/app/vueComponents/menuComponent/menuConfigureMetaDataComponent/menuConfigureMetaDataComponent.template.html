@@ -1,0 +1,34 @@
+<div class="card zoomIn animated">
+    <div class="card-block">
+        <div class="form-group">
+            <label>Menu Name:</label>
+            <input class="form-control" v-model="menuInstanceDetail.name"/>
+        </div>
+        <div class="form-group">
+            <label>Description:</label>
+            <textarea rows="3" class="form-control" type="text" v-model="menuInstanceDetail.description"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Icon Class: </label>
+            <input class="form-control" v-model="menuInstanceDetail.iconClass"/>
+        </div>
+        <div class="form-group">
+            <label>Navigate To Url: </label>
+            <input class="form-control" v-model="menuInstanceDetail.navigateToUrl"/>
+        </div>
+        <div class="form-group">
+            <label>Navigate To Fragment (Mobile Only): </label>
+            <input class="form-control" v-model="menuInstanceDetail.navigateToFragment"/>
+        </div>
+        <div class="form-group">
+            <label>Method to call which will display menu count: </label>
+            <input class="form-control" v-model="menuInstanceDetail.methodToDisplayMenuCount"/>
+        </div>
+        <div class="form-group">
+            <label>Fragment to call which will display menu count (Mobile only): </label>
+            <input class="form-control" v-model="menuInstanceDetail.fragmentToDisplayMenuCount"/>
+        </div>
+        <button class="btn btn-success" @click="onClick_createNewMenu">Save</button>
+        <button class="btn btn-outline-primary" @click="onClick_cancelNewMenuCreation">Cancel</button>
+    </div>
+</div>

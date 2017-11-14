@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+    <div class="panel-heading" v-if="menuDetail">
+        <span class="pull-left">
+            <h4>{{menuDetail.MenuName}}</h4>
+        </span>
+    </div>
+
+    <div class="panel-body">
+        <div class="card-deck">
+            <div class="card zoomIn animated" v-for="subMenuItem in subMenuList" v-if="subMenuItem">
+                <div class="card-block" @click="onClick_goToSubMenuDetail(subMenuItem)">
+                    <span v-if="subMenuItem.MenuIconClass" :class="subMenuItem.MenuIconClass"></span>
+                    <i v-if="subMenuItem.MethodToDisplayMenuCount" v-text="fncVariables[subMenuItem.MethodToDisplayMenuCount]"></i>
+                    <h6 class="card-title">{{subMenuItem.MenuName}}</h6>
+                    <!--<p class="card-text">{{subMenuItem.MenuDescription}}</p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

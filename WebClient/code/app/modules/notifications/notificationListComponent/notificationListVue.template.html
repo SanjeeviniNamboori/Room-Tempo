@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="">
+        <div class="">
+            <div class="panel-heading">
+                <span class="pull-left">
+                     <h4>Notifications</h4>
+                </span>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-default btn-sm" v-if="!editMode" title="Create Notification" @click="newNotificatoin">
+                        <span class="fa fa-plus"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div v-if="!editMode">
+                <div class="panel-body ">                    
+                    <div class="card-deck">
+                        <div class="card zoomIn animated" v-for="notification in notifications" v-if="notification" @click="goToNotification(notification)">
+                            <div class="card-block">
+                                <i class="fa fa-cog"></i>
+                                <h6 class="card-title">{{notification.MessageTitle}}</h6>
+                                <p class="card-text">{{notification.Message}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

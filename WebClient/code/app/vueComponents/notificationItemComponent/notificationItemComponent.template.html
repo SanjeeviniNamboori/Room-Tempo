@@ -1,0 +1,13 @@
+<!--<tr v-if="entityInstance && entityInstance.response">
+    <td v-text="entityInstance.response.message"></td>   
+</tr>-->
+
+
+<li v-if="entityInstance && entityInstance.response"  v-show="entityInstance.response.Status == 1 || filterType == 0" :class="[entityInstance.response.Status == '1' ? 'unread' : 'read']">
+    <span class="icon">
+                    <span class="fa fa-bell"></span>
+    </span>
+    <h6 class="title">{{entityInstance.response.MessageTitle}}</h6>
+    <p>{{entityInstance.response.Message}}</p>
+    <a class="ml-2" style="cursor: pointer;" @click="dismissNotification(entityInstance.response)">Dismiss</a>
+</li>

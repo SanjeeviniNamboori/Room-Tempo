@@ -1,0 +1,98 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <!--<h4 class="pull-left">Reservation List</h4>-->
+        <div class="btn-group">
+            <label>Property:</label>
+            <select class="form-control">
+                <option>All</option>
+            </select>
+
+            <label>Unit Type:</label>
+            <select class="form-control">
+                <option>All</option>
+            </select>
+            <button class="btn btn-default btn-sm"> <i class="fa fa-plus"></i> Add Filter </button>
+        </div>
+        <div class="btn-group pull-right">
+            <input type="text" placeholder="Tags" class="form-control" />
+            <button class="btn btn-default btn-sm" @click="switchView">
+                <i class="fa fa-eye"></i>
+            </button>
+
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle  btn-sm" type="button" data-toggle="dropdown">
+                    <i class="fa fa-plus"></i>
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li v-for="column in headerColumnList"><input type="checkbox" v-model="column.IsChecked" /><span v-text="column.Label"></span></li>
+                </ul>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle  btn-sm" type="button" data-toggle="dropdown">
+                    <i class="fa fa-ellipsis-v"></i>
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li> <a> <i class="fa fa-user"></i> Export to PDF</a></li>
+                    <li @click="exportToExcel"><a> <i class="fa fa-key"></i> Export to Excel</a></li>
+                    <li><a> <i class="fa fa-key"></i> Print</a></li>
+                </ul>
+            </div>
+
+
+            <button class="btn btn-default btn-sm" @click="switchView" v-if="false">
+                <i v-if="tempListType == 'list'" class="fa fa-th-large"></i>
+                <i v-if="tempListType != 'list'" class="fa fa-table"></i>
+            </button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="tableWrap">
+            <table class="table table-bordered userTable">
+                <thead>
+                    <tr>
+                        <th>ACTIONS</th>
+                        <th v-for="column in headerColumnList" v-if="column.IsChecked"><span v-text="column.Label"></span></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="inst in reservationList" @click="viewConcessionDetails(inst)">
+                        <td></td>
+                        <td v-if="headerColumnList.GuestName.IsChecked">
+                            <span>{{inst.GuestName}}</span>
+                            <div>{{inst.Adults + ' Adults, ' + inst.Children + ' Children'}}</div>
+                        </td>
+                        <td v-if="headerColumnList.StartDate.IsChecked">
+                            <label>
+                            <span>{{inst.StartDate}}</span>
+                            </label>
+                            <label style="margin-left: 20%">
+                            <span>{{inst.EndDate}}</span>
+                            <div>{{inst.Nights + ' Nights'}}</div>
+                            </label>
+                        </td>
+                        <td v-if="headerColumnList.Unit.IsChecked">
+                            <span>{{inst.Unit}}</span>
+                            <div>{{inst.UnitType}}</div>
+                        </td>
+                        <td v-if="headerColumnList.Status.IsChecked">{{inst.Status}}</td>
+                        <td v-if="headerColumnList.Amount.IsChecked"><span v-text="'$ ' + inst.Amount"></span></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div v-if="reservationList.length == 0">
+            <span>There are no reservations to show in this view</span>
+        </div>
+
+
+        <!--<div class="paginationBtns pull-right">
+            <pagination id="concessionTotalCount" for="concessionTable" :per-page="RowsPerPage" ref="concessionTable" :records="totalCount"></pagination>
+        </div>-->
+    </div>
+</div>

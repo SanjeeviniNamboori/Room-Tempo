@@ -1,0 +1,156 @@
+<div>
+    <div class="loggedinHome">
+        <div class="logoSection">
+            <a class="mainLogo" href="javascript: void(0)" @click="gotoHome">
+                   <span class="roomTemp"></span>
+                 </a>
+        </div>
+
+        <div class="search" style="display: none">
+            <span class="fa fa-search"></span>
+            <input type="text">
+        </div>
+        
+
+        <div class="headRightWrap">
+            <ul class="topNav">
+                <li><button @click="redirectToHome"><i class="fa fa-calendar topNavHomeIcon"></i></button></li>
+                <!--<li><button @click="toggleNotification" class="notoficationButton"><span class="fa fa-bell"></span> <span class="count">{{notificationCount}}</span></button></li>-->
+                <li><button @click="toggleNotification" class="notoficationButton"><span class="fa fa-bell"></span> 
+                    <span class="count" v-text="notificationCount"></span></button>
+                </li>
+                <li><button><i class="fa fa-cogs topNavHomeIcon"></i></button></li>
+            </ul>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle profilePic" type="button" data-toggle="dropdown">
+                    <!-- <img :src="userImage" alt=""> -->
+                    <span class="fa fa-user"></span>
+                    <!-- <span>{{userName}}</span> -->
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li @click="navigateToUserProfile"> <a> <i class="fa fa-user"></i> My Profile</a></li>
+                    <li @click="redirectToChangePassword"><a> <i class="fa fa-key"></i> Change Password</a></li>
+                    <li @click="logout"><a> <i class="fa fa-power-off"></i> Logout</a></li>
+                </ul>
+            </div>
+            <ul class="topNav">
+                    <li><button><i class="fa fa-life-ring topNavHomeIcon"></i></button></li>
+            </ul>
+
+
+           
+
+        </div>
+    </div>
+
+    <div class="siteHomepage"> </div>
+
+    <div class="menuMaskN" @click="toggleNotification"></div>
+
+    <div id="notification" class="notofocationBar">
+        <!--<h6>Notifications</h6><span @click="clearMessages">Clear</span>
+        <ul class="notofiLIst" v-for="notification in userNotifications">
+            <li>
+                <span class="icon"><span class="fa fa-bell"></span></span>
+                <p @click="navigateToNotification(notification)">{{notification.default.message}}</p>
+            </li>
+        </ul>-->
+        <div class="sideBarHeading">
+            <h6 @click="redirectToNotifications">
+                <!-- <span class="count" v-text="unreadCount"></span>-->Notifications </h6>
+            
+            <label class="pull-right">
+             <!--<input type="checkbox">-->
+             <span class="back"></span>
+             <span class="clearAll" v-if="notificationCount > 0" @click="dimissAllNotifications">Clear All</span>
+             <!--<span class="opt one" @click="showNotificationByType(1)">Unread</span>
+             <span class="opt two" @click="showNotificationByType(0)">All</span>-->
+         </label>
+        </div>
+        <ul class="notofiLIst" v-if="notificatoinKeyList && notificatoinKeyList.status == 'success'">
+            <!--<notificationItemComponent v-for="inst in notificatoinKeyList" :key="inst.NotificationIdText" :instance="inst" :filterType="filterType"></notificationItemComponent>-->
+
+
+            <!--<notificationItemComponent v-for="inst in notificatoinKeyList.response" :instanceId="inst.NotificationIdText" :instance="inst" :filterType="filterType" :updateCount="updateNotificationCount"></notificationItemComponent>-->
+
+            <!--<li v-for="notification in notificatoinKeyList1.response" :key="notification.NotificationIdText" v-show="notification.Status == 1 || filterType == 0"
+                :class="[notification.Status == 1 ? 'unread' : 'read']">
+                <span class="icon">
+                    <span class="fa fa-bell"></span>
+                </span>
+                <h6 class="title" @click="naviagateToDetail(notification)">{{notification.MessageTitle}}</h6>
+                <p @click="naviagateToDetail(notification)">{{notification.Message}}</p>
+                <a v-if="notification.Status == 1" class="ml-2 float-right" style="border: 1px solid #e06d6d; border-radius: 11px; padding: 1px 13px; font-size: 12px; font-weight: normal;"
+                    @click="dismissNotification(notification)">Dismiss</a>
+            </li>-->
+
+            <!--<li v-if="notification.status == 'prepared'" v-show="notification.status == 'prepared' || filterType == 'All'" :class="[notification.status == 'prepared' ? 'unread' : 'read']">
+                <span class="icon">
+                    <span class="fa fa-bell"></span>
+                </span>
+                <h6 class="title">{{notification.message}}</h6>
+                <p>{{notification.message}}</p>
+                <a @click="naviagateToDetail(notification)">More</a> <a class="ml-2" @click="dismissNotification(notification)">Dismiss</a>
+            </li>
+            <li v-if="notification.status != 'prepared'" v-show="filterType == 'All'" :class="[notification.status == 'prepared' ? 'unread' : 'read']">
+                <span class="icon">
+                    <span class="fa fa-bell"></span>
+                </span>
+                <h6 class="title">{{notification.message}}</h6>
+                <p>{{notification.message}}</p>
+                <a @click="naviagateToDetail(notification)">More</a> <a class="ml-2" @click="dismissNotification(notification)">Dismiss</a>
+            </li>-->
+
+            <!--<li class="unread">
+                <span class="icon">
+       <span class="fa fa-bell"></span>
+                </span>
+                <h6 class="title">Bonus Announced</h6>
+                <p>Congratulations!!! Your bonus is processed to your account, have a happy weekend<br> <span>22 June 2017</span></p>
+                <a href="#">More</a> <a class="ml-2" href="#">Dismiss</a>
+            </li>
+            <li class="unread">
+                <span class="icon">
+       <span class="fa fa-bell"></span>
+                </span>
+                <h6 class="title">Fire Accident Alert</h6>
+                <p> Due to gas pipe leakage fire explosion has occurred <br> <span>6 June 2017</span></p>
+                <a href="#">More</a> <a class="ml-2" href="#">Dismiss</a>
+            </li>
+            <li>
+                <span class="icon">
+       <span class="fa fa-bell"></span>
+                </span>
+                <h6 class="title">Tasks of the week</h6>
+                <p>Tasks for the coming week to be completed before the due date<br> <span>29 May 2017</span></p>
+                <a href="#">More</a> <a class="ml-2" href="#">Dismiss</a>
+            </li>
+            <li>
+                <span class="icon">
+       <span class="fa fa-bell"></span>
+                </span>
+                <h6 class="title">Estimation of Spain</h6>
+                <p>Estimate for best route to Spain from Italy for Coke company is sent to client<br> <span>22 May 2017</span></p>
+                <a href="#">More</a> <a class="ml-2" href="#">Dismiss</a>
+            </li>
+            <li>
+                <span class="icon">
+       <span class="fa fa-bell"></span>
+                </span>
+                <h6 class="title">Ticket raised on Projector repair</h6>
+                <p>Projector in first floor is not working, needs to be taken care<br> <span>15 May 2017</span></p>
+                <a href="#">More</a> <a class="ml-2" href="#">Dismiss</a>
+            </li>
+            <li>
+                <span class="icon">
+       <span class="fa fa-bell"></span>
+                </span>
+                <h6 class="title">Leave Approved</h6>
+                <p>Sick Leave taken on 10 May have been approved by Mr.Kevin<br> <span>12 May 2017</span></p>
+                <a href="#">More</a> <a class="ml-2" href="#">Dismiss</a>
+            </li>-->
+        </ul>
+    </div>
+
+</div>

@@ -1,0 +1,9 @@
+<div class="input-group">
+    <input type="text" class="form-control custom-date-control" :disabled="isDisabled" :required="isRequired" readonly="readonly" placeholder="Select Date" />
+    <span class="input-group-addon btn btn-primary">
+        <span :class="['fa', pickerType == 'date' ? 'fa-calendar' : 'fa-clock-o']" ></span>
+    </span>
+    <div v-if="showErrorMessage" class="invalid-feedback">
+        {{errorMessage}}
+    </div>
+</div>

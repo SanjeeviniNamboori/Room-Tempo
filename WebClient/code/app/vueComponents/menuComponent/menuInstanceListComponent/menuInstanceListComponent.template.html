@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="pull-left">
+            <h4>Menus List</h4>
+        </span>
+        <div class="btn-group pull-right">
+            <button class="btn btn-default btn-sm" title="Add New Menu" @click="createMenu">
+                <span class="fa fa-plus"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="panel-body">
+
+
+        <div class="card-deck">
+            <div class="card zoomIn animated cardWithConfig" v-for="menuItem in menuList" v-if="menuItem">
+
+                <div class="card-block" @click="onClick_goToMenuItemConfiguration(menuItem)">
+                    <h6 class="card-title">{{menuItem.MenuName}}</h6>
+                    <p class="card-text">{{menuItem.MenuDescription}}</p>
+                </div>
+                <i :class="menuItem.iconClass && menuItem.iconClass !== '' ? menuItem.iconClass : 'fa fa-cog pull-right'"
+                   @click="onClick_goToMenuItemConfiguration(menuItem)"></i>
+            </div>
+
+
+            <transition name="fade" v-if="showNewMenu">
+                <vw-menu-edit-meta-data-component
+                        :cancelNewMenuCreation="onClickCancelMenuCreation"></vw-menu-edit-meta-data-component>
+            </transition>
+        </div>
+
+    </div>
+</div>
